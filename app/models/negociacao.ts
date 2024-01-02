@@ -17,4 +17,12 @@ export class Negociacao {
         const data = new Date(this._data.getTime());
         return data;
     }
+
+    public static criaDe(dataString: string, quantidadeString: string, valorString: string): Negociacao {
+        let exp = /-/g
+        let date = new Date(dataString.replace(exp, ','));
+        let quantidade = parseInt(quantidadeString);
+        let valor = parseFloat(valorString);
+        return new Negociacao(date, quantidade, valor);
+    }
 }
